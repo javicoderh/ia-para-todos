@@ -237,16 +237,92 @@ import brainImage from "../assets/brain.png";
 
   @media (max-width: 720px) {
     .landing-stage {
-      padding: 1rem 0 1.6rem;
+      padding: 0.4rem 0 1rem;
+    }
+
+    .landing-top {
+      gap: 0.7rem;
+    }
+
+    .landing-heading {
+      order: 2;
+      gap: 0.45rem;
+      padding-right: 0;
+    }
+
+    .landing-heading .eyebrow {
+      font-size: 0.74rem;
+      padding: 0.34rem 0.65rem;
     }
 
     .landing-heading .title-xl {
-      font-size: clamp(2.15rem, 9.4vw, 2.9rem);
+      font-size: clamp(1.85rem, 7.8vw, 2.35rem);
       line-height: 1.03;
     }
 
+    .landing-heading .lead {
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
     .hero-brain-art {
-      width: min(100%, 24rem);
+      display: none;
+    }
+
+    .landing-signup {
+      order: 1;
+      padding: 1rem;
+      gap: 0.8rem;
+    }
+
+    .landing-signup-copy {
+      gap: 0.45rem;
+    }
+
+    .landing-signup .eyebrow {
+      font-size: 0.72rem;
+      padding: 0.34rem 0.65rem;
+    }
+
+    .landing-signup .title-md {
+      font-size: clamp(1.25rem, 5.6vw, 1.55rem);
+    }
+
+    .landing-signup .body-lg {
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    .landing-form {
+      gap: 0.55rem;
+    }
+
+    .landing-field {
+      gap: 0.35rem;
+      font-size: 0.92rem;
+    }
+
+    .landing-field input {
+      padding: 0.82rem 0.9rem;
+      border-radius: 16px;
+    }
+
+    .landing-submit {
+      padding-block: 0.9rem;
+    }
+
+    .landing-signup-proof article {
+      padding: 0.68rem 0.82rem;
+      border-radius: 16px;
+    }
+
+    .landing-signup-proof span {
+      font-size: 0.88rem;
+      line-height: 1.4;
+    }
+
+    .landing-editorial {
+      display: none;
     }
   }
 </style>
