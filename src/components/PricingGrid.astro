@@ -26,9 +26,16 @@ const { items } = Astro.props;
           <li>{feature}</li>
         ))}
       </ul>
-      <a class:list={["btn", item.highlighted ? "btn-primary" : "btn-secondary"]} href={item.ctaHref}>
-        {item.ctaLabel}
-      </a>
+      <div class="pricing-actions">
+        <a class:list={["btn", item.highlighted ? "btn-primary" : "btn-secondary"]} href={item.ctaHref}>
+          {item.ctaLabel}
+        </a>
+        {item.secondaryCtaLabel && item.secondaryCtaHref && (
+          <a class="btn btn-secondary" href={item.secondaryCtaHref}>
+            {item.secondaryCtaLabel}
+          </a>
+        )}
+      </div>
     </article>
   ))}
 </div>
@@ -76,5 +83,10 @@ const { items } = Astro.props;
     font-size: clamp(1.8rem, 3vw, 2.8rem);
     color: var(--color-primary);
     line-height: 0.98;
+  }
+
+  .pricing-actions {
+    display: grid;
+    gap: 0.7rem;
   }
 </style>

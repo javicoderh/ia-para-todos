@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
 import ArticleCards from "../../components/ArticleCards.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
 import { articles } from "../../data/site";
 ---
 
@@ -27,4 +28,9 @@ import { articles } from "../../data/site";
       <ArticleCards items={articles} />
     </div>
   </section>
+
+  <NewsletterSignup
+    title="Si este contenido te sirve, recibe nuevas ediciones gratis en tu email."
+    description="Suscríbete para recibir análisis, herramientas, casos y criterios prácticos para adoptar IA con más claridad."
+  />
 </BaseLayout>

@@ -6,6 +6,7 @@ import ServiceCards from "../components/ServiceCards.astro";
 import PricingGrid from "../components/PricingGrid.astro";
 import ArticleCards from "../components/ArticleCards.astro";
 import LeadCapture from "../components/LeadCapture.astro";
+import NewsletterSignup from "../components/NewsletterSignup.astro";
 import CTASection from "../components/CTASection.astro";
 import FAQList from "../components/FAQList.astro";
 import TrustBar from "../components/TrustBar.astro";
@@ -120,6 +121,11 @@ import {
     description="Elige una guía, checklist o diagnóstico inicial y avanza con ideas más claras para tu equipo, tu operación o tu siguiente capacitación."
   />
 
+  <NewsletterSignup
+    title="Suscríbete gratis y recibe ideas aplicables de IA en tu correo."
+    description="Cada edición reúne herramientas, casos y flujos de trabajo potenciados por IA para ayudarte a descubrir oportunidades reales y aplicarlas con mejor criterio."
+  />
+
   <section class="section">
     <div class="container testimonial-band">
       {testimonials.map((item) => (
@@ -141,7 +147,7 @@ import {
         <SectionIntro
           eyebrow="Media layer"
           title="Contenido útil para entender qué vale la pena implementar."
-          description="Publicamos contenido para ayudar a decidir mejor: qué herramientas sirven, qué procesos conviene intervenir y cómo construir una adopción más sólida."
+          description="Publicamos contenido para ayudar a decidir mejor: qué herramientas sirven, qué procesos conviene intervenir y cómo construir flujos de trabajo potenciados por IA más sólidos."
         />
         <a class="btn btn-secondary" href="/news">Ir a news</a>
       </div>
@@ -164,8 +170,8 @@ import {
 
   <CTASection
     title="Una buena decisión al inicio puede ahorrarte meses de prueba y error."
-    description="Conversemos sobre tu caso, tu equipo o tu idea. Podemos recomendarte si conviene partir con capacitación, un agente interno, contenido de adopción o una solución más liviana."
-    primaryLabel="Hablar sobre mi caso"
+    description="Conversemos sobre tu caso, tu equipo o tu idea. Podemos recomendarte si conviene partir con capacitación, un agente interno, contenido para flujos de trabajo potenciados por IA o una solución más liviana."
+    primaryLabel="Solicitar asesoría gratuita"
     primaryHref="/contacto"
     secondaryLabel="Comparar servicios"
     secondaryHref="/productos"

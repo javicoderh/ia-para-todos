@@ -19,6 +19,8 @@ export type PricingPlan = {
   features: string[];
   ctaLabel: string;
   ctaHref: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
   highlighted?: boolean;
 };
 
@@ -36,7 +38,7 @@ export type Article = {
 
 export const brand = {
   name: "IA para Todos",
-  tagline: "Capacitación, implementación y adopción práctica de IA para empresas y profesionales.",
+  tagline: "Capacitación, implementación y flujos de trabajo potenciados por IA para empresas y profesionales.",
   alternatives: ["Adopta IA", "IA en Marcha", "Taller IA", "IA Aplicada"]
 };
 
@@ -116,7 +118,7 @@ export const services: ServiceCard[] = [
   },
   {
     title: "Boletines de adopción y contenido interno",
-    description: "Creamos boletines, mini guías e infografías para reforzar aprendizajes, compartir ejemplos útiles y convertir la adopción en parte de la rutina.",
+    description: "Creamos boletines, mini guías e infografías para reforzar aprendizajes, compartir ejemplos útiles y convertir los flujos de trabajo potenciados por IA en parte de la rutina.",
     href: "/boletines",
     bullets: ["Curación por industria y cargo", "Infografías internas accionables", "Material para pantallas, onboarding y equipos"],
     audience: "Empresas"
@@ -137,7 +139,7 @@ export const howItWorks = [
   },
   {
     step: "2. Priorización comercial",
-    description: "Priorizamos quick wins y soluciones según impacto, urgencia, facilidad de adopción y presupuesto."
+    description: "Priorizamos quick wins y soluciones según impacto, urgencia, facilidad de adopción de flujos de trabajo potenciados por IA y presupuesto."
   },
   {
     step: "3. Implementación práctica",
@@ -145,7 +147,7 @@ export const howItWorks = [
   },
   {
     step: "4. Medición y continuidad",
-    description: "Dejamos activos reutilizables y una ruta simple para sostener adopción, uso y mejora continua."
+    description: "Dejamos activos reutilizables y una ruta simple para sostener flujos de trabajo potenciados por IA, uso y mejora continua."
   }
 ];
 
@@ -160,7 +162,7 @@ export const useCases = [
   },
   {
     title: "RR. HH. y capacitación",
-    text: "Acelerar onboarding, formación interna, difusión de buenas prácticas y adopción responsable dentro del equipo."
+    text: "Acelerar onboarding, formación interna, difusión de buenas prácticas y adopción responsable de flujos de trabajo potenciados por IA dentro del equipo."
   },
   {
     title: "Profesionales y estudiantes",
@@ -181,8 +183,10 @@ export const workshopPlans: PricingPlan[] = [
     description: "Sesión práctica para alinear conceptos, mostrar usos reales y salir con ideas aplicables al trabajo de la semana.",
     audience: "Equipos y pymes",
     features: ["Formato ágil y directo", "Enfoque por rol o área", "Casos aterrizados al negocio"],
-    ctaLabel: "Cotizar workshop",
-    ctaHref: "/contacto"
+    ctaLabel: "Agendar diagnóstico",
+    ctaHref: "/diagnostico",
+    secondaryCtaLabel: "Solicitar asesoría gratuita",
+    secondaryCtaHref: "/contacto"
   },
   {
     name: "Capacitación corporativa estándar",
@@ -190,18 +194,22 @@ export const workshopPlans: PricingPlan[] = [
     description: "Capacitación para áreas o equipos completos con ejercicios, ejemplos y criterios para usar IA con confianza.",
     audience: "Empresas",
     features: ["Material de apoyo reutilizable", "Casos por industria o función", "Recomendaciones concretas de adopción"],
-    ctaLabel: "Solicitar propuesta",
-    ctaHref: "/contacto",
+    ctaLabel: "Agendar diagnóstico",
+    ctaHref: "/diagnostico",
+    secondaryCtaLabel: "Solicitar asesoría gratuita",
+    secondaryCtaHref: "/contacto",
     highlighted: true
   },
   {
-    name: "Programa corporativo de adopción",
+    name: "Programa corporativo de flujos potenciados por IA",
     price: "desde CLP $1.990.000",
     description: "Programa para instalar hábitos, procesos y comunicación interna que permitan usar IA con continuidad y sentido.",
     audience: "Empresas medianas",
     features: ["Roadmap por etapas", "Capacitación + contenido interno", "Quick wins priorizados por impacto"],
     ctaLabel: "Agendar diagnóstico",
-    ctaHref: "/diagnostico"
+    ctaHref: "/diagnostico",
+    secondaryCtaLabel: "Solicitar asesoría gratuita",
+    secondaryCtaHref: "/contacto"
   }
 ];
 
@@ -212,8 +220,10 @@ export const individualPlans: PricingPlan[] = [
     description: "Punto de entrada accesible para empezar a usar IA con criterio en estudios, trabajo y productividad personal.",
     audience: "Principiantes",
     features: ["Herramientas clave para empezar", "Ejercicios guiados", "Aplicaciones académicas y laborales"],
-    ctaLabel: "Quiero participar",
-    ctaHref: "/contacto"
+    ctaLabel: "Reservar cupo",
+    ctaHref: "/contacto",
+    secondaryCtaLabel: "Solicitar asesoría gratuita",
+    secondaryCtaHref: "/contacto"
   },
   {
     name: "Curso práctico especializado",
@@ -223,6 +233,8 @@ export const individualPlans: PricingPlan[] = [
     features: ["Aplicación inmediata", "Recursos descargables", "Enfoque carrera-utilidad"],
     ctaLabel: "Reservar cupo",
     ctaHref: "/contacto",
+    secondaryCtaLabel: "Solicitar asesoría gratuita",
+    secondaryCtaHref: "/contacto",
     highlighted: true
   },
   {
@@ -231,8 +243,10 @@ export const individualPlans: PricingPlan[] = [
     description: "Ruta más completa para integrar IA al trabajo de forma consistente y construir una ventaja práctica real.",
     audience: "Upskilling profesional",
     features: ["Módulos prácticos", "Acompañamiento", "Proyecto o flujo aplicable al final"],
-    ctaLabel: "Pedir información",
-    ctaHref: "/contacto"
+    ctaLabel: "Reservar cupo",
+    ctaHref: "/contacto",
+    secondaryCtaLabel: "Solicitar asesoría gratuita",
+    secondaryCtaHref: "/contacto"
   }
 ];
 
@@ -243,8 +257,10 @@ export const newsletterPlans: PricingPlan[] = [
     description: "Resumen semanal de herramientas, novedades y usos concretos según la industria o intereses del equipo.",
     audience: "Empresas pequeñas",
     features: ["Curación semanal", "Selección útil de herramientas", "Tono ejecutivo y accionable"],
-    ctaLabel: "Empezar plan base",
-    ctaHref: "/contacto"
+    ctaLabel: "Solicitar asesoría gratuita",
+    ctaHref: "/contacto",
+    secondaryCtaLabel: "Agendar diagnóstico",
+    secondaryCtaHref: "/diagnostico"
   },
   {
     name: "Plan Pro",
@@ -252,8 +268,10 @@ export const newsletterPlans: PricingPlan[] = [
     description: "Mayor frecuencia, mini guías y ejemplos listos para transformar ideas en uso real dentro del equipo.",
     audience: "Equipos activos",
     features: ["Alta frecuencia", "Mini guías prácticas", "Ideas de productividad y workflow"],
-    ctaLabel: "Escalar a Pro",
+    ctaLabel: "Solicitar asesoría gratuita",
     ctaHref: "/contacto",
+    secondaryCtaLabel: "Agendar diagnóstico",
+    secondaryCtaHref: "/diagnostico",
     highlighted: true
   },
   {
@@ -261,9 +279,11 @@ export const newsletterPlans: PricingPlan[] = [
     price: "desde CLP $690.000 / mes",
     description: "Boletín, infografías y piezas internas para mantener la adopción viva y visible en toda la organización.",
     audience: "Empresas con cultura interna",
-    features: ["Contenido interno a medida", "Piezas para pantallas y canales internos", "Mensajería de cambio y adopción"],
-    ctaLabel: "Solicitar propuesta",
-    ctaHref: "/contacto"
+    features: ["Contenido interno a medida", "Piezas para pantallas y canales internos", "Mensajería de cambio y adopción de flujos potenciados por IA"],
+    ctaLabel: "Agendar diagnóstico",
+    ctaHref: "/diagnostico",
+    secondaryCtaLabel: "Solicitar asesoría gratuita",
+    secondaryCtaHref: "/contacto"
   }
 ];
 
@@ -271,11 +291,13 @@ export const agentPlans: PricingPlan[] = [
   {
     name: "Implementación base",
     price: "desde CLP $990.000 a $2.490.000",
-    description: "Incluye un asistente ejecutivo base más 1 a 3 features especializados según el flujo que quieras resolver primero.",
+    description: "Incluye un asistente ejecutivo base más 1 a 3 features especializados según el/los flujos especializados que quieras implementar.",
     audience: "Empresas",
     features: ["Asistente ejecutivo base", "1 a 3 features especializados", "Diseño orientado al proceso real"],
-    ctaLabel: "Evaluar implementación",
+    ctaLabel: "Agendar diagnóstico",
     ctaHref: "/diagnostico",
+    secondaryCtaLabel: "Solicitar asesoría gratuita",
+    secondaryCtaHref: "/contacto",
     highlighted: true
   },
   {
@@ -284,8 +306,10 @@ export const agentPlans: PricingPlan[] = [
     description: "Módulos adicionales para resolver necesidades específicas de operación, soporte, coordinación o análisis.",
     audience: "Empresas",
     features: ["Extracción de tareas", "Resúmenes de reuniones", "Automatizaciones específicas por caso"],
-    ctaLabel: "Agregar módulos",
-    ctaHref: "/contacto"
+    ctaLabel: "Solicitar asesoría gratuita",
+    ctaHref: "/contacto",
+    secondaryCtaLabel: "Agendar diagnóstico",
+    secondaryCtaHref: "/diagnostico"
   }
 ];
 
