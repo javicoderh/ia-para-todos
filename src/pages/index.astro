@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LandingNewsCarousel from "../components/LandingNewsCarousel.astro";
 import { articles } from "../data/site";
+import brainImage from "../assets/brain.png";
 ---
 
 <BaseLayout
@@ -14,11 +15,14 @@ import { articles } from "../data/site";
       <div class="landing-top">
         <div class="landing-heading">
           <p class="eyebrow">Boletín semanal gratuito</p>
-        <h1 class="title-xl">Una actualización semanal con novedades útiles para potenciar tu negocio con herramientas IA.</h1>
-        <p class="lead">
-          Recibe ideas accionables, herramientas relevantes y ejemplos concretos para descubrir oportunidades reales y tomar mejores decisiones de implementación.
-        </p>
-      </div>
+          <h1 class="title-xl">Actualízate todas las semanas.</h1>
+          <p class="lead">
+            Conéctate a las noticias que encienden oportunidades, elevan tu productividad y transforman tu intuición en acción.
+          </p>
+          <div class="hero-brain-art" aria-hidden="true">
+            <img src={brainImage.src} alt="" loading="lazy" />
+          </div>
+        </div>
 
         <aside class="landing-signup card">
           <div class="landing-signup-copy">
@@ -83,7 +87,7 @@ import { articles } from "../data/site";
 
   .landing-shell {
     display: grid;
-    gap: 1.3rem;
+    gap: 1rem;
   }
 
   .landing-top {
@@ -95,15 +99,32 @@ import { articles } from "../data/site";
 
   .landing-heading {
     display: grid;
-    gap: 0.8rem;
+    gap: 0.65rem;
     align-content: start;
     min-height: 100%;
-    padding: 0.35rem 0.25rem 0 0;
+    padding: 0.2rem 0.25rem 0 0;
   }
 
   .landing-heading .title-xl {
     font-size: clamp(2.6rem, 4.4vw, 4.45rem);
     line-height: 1.02;
+  }
+
+  .hero-brain-art {
+    width: min(100%, 29rem);
+    margin-top: 0.15rem;
+    border-radius: 28px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(11, 31, 58, 0.92), rgba(31, 60, 136, 0.88));
+    box-shadow: 0 16px 38px rgba(11, 31, 58, 0.12);
+  }
+
+  .hero-brain-art img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
   }
 
   .landing-editorial {
@@ -123,10 +144,10 @@ import { articles } from "../data/site";
   }
 
   .landing-signup {
-    padding: 1.35rem;
-    border-radius: 30px;
+    padding: 1.2rem;
+    border-radius: 28px;
     display: grid;
-    gap: 1.1rem;
+    gap: 0.95rem;
     align-content: start;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(236, 242, 248, 0.95)),
@@ -135,12 +156,12 @@ import { articles } from "../data/site";
 
   .landing-signup-copy {
     display: grid;
-    gap: 0.8rem;
+    gap: 0.65rem;
   }
 
   .landing-form {
     display: grid;
-    gap: 0.8rem;
+    gap: 0.65rem;
   }
 
   .landing-field {
@@ -165,14 +186,14 @@ import { articles } from "../data/site";
 
   .landing-signup-proof {
     display: grid;
-    gap: 0.75rem;
-    padding-top: 0.15rem;
+    gap: 0.55rem;
+    padding-top: 0;
   }
 
   .landing-signup-proof article {
     display: grid;
     gap: 0.2rem;
-    padding: 0.9rem 1rem;
+    padding: 0.8rem 0.95rem;
     border-radius: 20px;
     background: rgba(11, 31, 58, 0.04);
     border: 1px solid rgba(11, 31, 58, 0.06);
@@ -216,6 +237,10 @@ import { articles } from "../data/site";
     .landing-heading .title-xl {
       font-size: clamp(2.15rem, 9.4vw, 2.9rem);
       line-height: 1.03;
+    }
+
+    .hero-brain-art {
+      width: min(100%, 24rem);
     }
   }
 </style>
