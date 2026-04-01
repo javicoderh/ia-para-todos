@@ -1,0 +1,128 @@
+---
+import type { Article } from "../data/site";
+
+interface Props {
+  items: Article[];
+}
+
+const { items } = Astro.props;
+
+const coverFor = (item: Article) => {
+  const title = item.title.replace(/&/g, "&amp;");
+  const label = item.coverLabel.replace(/&/g, "&amp;");
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+      <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0b1f3a" />
+          <stop offset="100%" stop-color="#1f3c88" />
+        </linearGradient>
+      </defs>
+      <rect width="800" height="520" rx="36" fill="url(#bg)" />
+      <circle cx="670" cy="120" r="110" fill="rgba(0,209,255,0.18)" />
+      <circle cx="130" cy="420" r="150" fill="rgba(255,255,255,0.08)" />
+      <rect x="52" y="56" width="210" height="38" rx="19" fill="rgba(255,255,255,0.14)" />
+      <text x="76" y="80" fill="#ffffff" font-size="20" font-family="Arial, sans-serif">${label}</text>
+      <foreignObject x="52" y="142" width="640" height="260">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial, sans-serif; font-size:44px; line-height:1.15; color:#ffffff; font-weight:700;">
+          ${title}
+        </div>
+      </foreignObject>
+      <text x="52" y="460" fill="#9fefff" font-size="22" font-family="Arial, sans-serif">News editorial</text>
+    </svg>
+  `;
+
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+};
+---
+
+<div class="landing-carousel-shell">
+  <div class="landing-carousel" role="list" aria-label="Artículos destacados">
+    {items.map((item) => (
+      <article class="landing-slide card" role="listitem">
+        <img src={coverFor(item)} alt={item.title} loading="lazy" />
+        <div class="landing-slide-copy">
+          <p class="kicker">{item.category}</p>
+          <h3 class="landing-slide-title">{item.title}</h3>
+          <div class="landing-slide-meta">
+            <span>{item.date}</span>
+            <span>{item.readTime}</span>
+          </div>
+          <a class="btn btn-secondary" href={`/news/${item.slug}`}>Ir al artículo completo</a>
+        </div>
+      </article>
+    ))}
+  </div>
+</div>
+
+<style>
+  .landing-carousel-shell {
+    position: relative;
+  }
+
+  .landing-carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(300px, 34rem);
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+  }
+
+  .landing-slide {
+    scroll-snap-align: start;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: 0;
+    min-height: 100%;
+  }
+
+  .landing-slide img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  }
+
+  .landing-slide-copy {
+    padding: 1.25rem;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .landing-slide-title {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1.45vw, 1.45rem);
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  .landing-slide-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+  }
+
+  .landing-slide-copy .btn {
+    width: auto;
+    justify-self: start;
+    padding-inline: 1.1rem;
+  }
+
+  @media (max-width: 720px) {
+    .landing-carousel {
+      grid-auto-columns: minmax(280px, 88vw);
+    }
+
+    .landing-slide-title {
+      font-size: 1.08rem;
+    }
+  }
+</style>

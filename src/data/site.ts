@@ -50,6 +50,7 @@ export const company = {
 };
 
 export const navigation: NavItem[] = [
+  { label: "Home", href: "/home" },
   { label: "Productos", href: "/productos" },
   { label: "Workshops", href: "/workshops" },
   { label: "Agentes", href: "/agentes" },

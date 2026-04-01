@@ -1,299 +1,221 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import SectionIntro from "../components/SectionIntro.astro";
-import ServiceCards from "../components/ServiceCards.astro";
-import PricingGrid from "../components/PricingGrid.astro";
-import ArticleCards from "../components/ArticleCards.astro";
-import LeadCapture from "../components/LeadCapture.astro";
-import NewsletterSignup from "../components/NewsletterSignup.astro";
-import CTASection from "../components/CTASection.astro";
-import FAQList from "../components/FAQList.astro";
-import TrustBar from "../components/TrustBar.astro";
-import {
-  articles,
-  faqs,
-  howItWorks,
-  newsletterPlans,
-  proofPoints,
-  services,
-  testimonials,
-  trustLogos,
-  useCases
-} from "../data/site";
+import LandingNewsCarousel from "../components/LandingNewsCarousel.astro";
+import { articles } from "../data/site";
 ---
 
-<BaseLayout>
-  <Hero />
-  <TrustBar items={trustLogos} />
-
-  <section class="section">
-    <div class="container">
-      <div class="proof-panel card-dark">
-        <div>
-          <p class="eyebrow">Prueba de valor</p>
-          <h2 class="title-lg">La IA se mueve más rápido cuando todos entienden para qué sirve.</h2>
-        </div>
-        <div class="grid grid-3 proof-grid">
-          {proofPoints.map((item) => (
-            <article class="proof-item">
-              <h3>{item.value}</h3>
-              <p>{item.label}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <SectionIntro
-          eyebrow="Oferta principal"
-          title="Servicios pensados para convertir interés en avance real."
-          description="La oferta está ordenada para responder lo que más preguntan empresas y profesionales: cómo empezar, qué conviene implementar y cuánto sentido tiene invertir hoy."
-        />
-        <a class="btn btn-secondary" href="/productos">Ver portafolio</a>
-      </div>
-      <ServiceCards items={services} />
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container split-band">
-      <div class="card card-feature split-copy">
-        <p class="eyebrow">Cómo se implementa</p>
-        <h2 class="title-lg">De la idea al hábito: así empieza la adopción que sí se nota.</h2>
+<BaseLayout
+  title="IA para Todos | Radar práctico de IA"
+  description="Explora artículos prácticos, entra al portal editorial y suscríbete al boletín semanal gratuito."
+  showFooter={false}
+>
+  <section class="landing-stage">
+    <div class="container landing-shell">
+      <div class="landing-top">
+        <div class="landing-heading">
+          <p class="eyebrow">Boletín semanal gratuito</p>
+        <h1 class="title-xl">Una actualización semanal con novedades útiles para potenciar tu negocio con herramientas IA.</h1>
         <p class="lead">
-          Una ruta simple para priorizar quick wins y convertir la IA en un sistema de trabajo que el equipo entiende, prueba y adopta con más facilidad.
+          Recibe ideas accionables, herramientas relevantes y ejemplos concretos para descubrir oportunidades reales y tomar mejores decisiones de implementación.
         </p>
-        <a class="btn btn-primary" href="/diagnostico">Ver diagnóstico</a>
       </div>
-      <div class="grid flow-grid">
-        {howItWorks.map((item) => (
-          <article class="card card-pad flow-item">
-            <p class="kicker">{item.step}</p>
-            <p class="body-lg">{item.description}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <SectionIntro
-          eyebrow="Resultados por audiencia"
-          title="Cada área puede ganar tiempo, foco y velocidad si aplica la IA donde importa."
-          description="Mostramos dónde la IA puede ahorrar tiempo, ordenar mejor el trabajo y mejorar resultados según cada contexto."
-        />
-        <a class="btn btn-secondary" href="/casos-de-uso">Explorar casos</a>
-      </div>
-      <div class="grid grid-2 usecase-grid">
-        {useCases.map((item) => (
-          <article class="card card-pad usecase-item">
-            <h3 class="title-md">{item.title}</h3>
-            <p class="body-lg">{item.text}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <SectionIntro
-          eyebrow="Pricing destacado"
-          title="Precios claros para tomar decisiones más rápido."
-          description="Mostrar rangos desde el inicio ayuda a ordenar expectativas, ahorrar tiempo comercial y avanzar con prospectos mejor calificados."
-        />
-        <a class="btn btn-secondary" href="/precios">Ver tabla completa</a>
-      </div>
-      <PricingGrid items={newsletterPlans} />
-    </div>
-  </section>
-
-  <LeadCapture
-    title="Recibe una guía útil y descubre por dónde conviene empezar."
-    description="Elige una guía, checklist o diagnóstico inicial y avanza con ideas más claras para tu equipo, tu operación o tu siguiente capacitación."
-  />
-
-  <NewsletterSignup
-    title="Suscríbete gratis y recibe ideas aplicables de IA en tu correo."
-    description="Cada edición reúne herramientas, casos y flujos de trabajo potenciados por IA para ayudarte a descubrir oportunidades reales y aplicarlas con mejor criterio."
-  />
-
-  <section class="section">
-    <div class="container testimonial-band">
-      {testimonials.map((item) => (
-        <article class="card card-pad quote-card">
-          <p class="quote-mark">“</p>
-          <p class="quote-text">{item.quote}</p>
-          <div class="quote-meta">
-            <strong>{item.author}</strong>
-            <span>{item.company}</span>
+        <aside class="landing-signup card">
+          <div class="landing-signup-copy">
+            <p class="eyebrow">Boletín gratuito</p>
+            <h2 class="title-md">Suscríbete en menos de 10 segundos.</h2>
+            <p class="body-lg">
+              Recibe 1 edición semanal con artículos y guías para implementar flujos de trabajo top tier en tu negocio.
+            </p>
           </div>
-        </article>
-      ))}
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <SectionIntro
-          eyebrow="Media layer"
-          title="Contenido útil para entender qué vale la pena implementar."
-          description="Publicamos contenido para ayudar a decidir mejor: qué herramientas sirven, qué procesos conviene intervenir y cómo construir flujos de trabajo potenciados por IA más sólidos."
-        />
-        <a class="btn btn-secondary" href="/news">Ir a news</a>
+          <form
+            class="landing-form"
+            action="https://formsubmit.co/justarapperguy@gmail.com"
+            method="POST"
+            data-validated
+            novalidate
+          >
+            <input type="hidden" name="_subject" value="Nueva suscripción al boletín gratuito desde IA para Todos" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="" data-next-url="/gracias" />
+
+            <label class="landing-field">
+              Email
+              <input type="email" name="email" placeholder="nombre@empresa.cl" required />
+              <span class="field-error" data-error-for="email"></span>
+            </label>
+
+            <button class="btn btn-primary landing-submit" type="submit">Suscribirme gratis</button>
+          </form>
+
+          <div class="landing-signup-proof">
+            <article>
+              <strong>1 correo por semana</strong>
+              <span>💎 La crème de la crème.</span>
+            </article>
+          </div>
+        </aside>
       </div>
-      <ArticleCards items={articles} />
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container">
-      <SectionIntro
-        eyebrow="Preguntas frecuentes"
-        title="Lo que normalmente necesitas saber antes de avanzar."
-        description="Aclaramos alcances, formatos, precios y puntos de partida para que tomar la decisión sea más simple."
-      />
-      <div style="margin-top: 2rem;">
-        <FAQList items={faqs} />
+      <div class="landing-editorial card-dark">
+        <div class="landing-editorial-head">
+          <div>
+            <p class="eyebrow">Lecturas destacadas</p>
+            <h2 class="title-md">Biblioteca de ideas aplicadas</h2>
+          </div>
+          <a class="btn btn-secondary" href="/news">Explorar artículos</a>
+        </div>
+        <LandingNewsCarousel items={articles} />
       </div>
     </div>
   </section>
-
-  <CTASection
-    title="Una buena decisión al inicio puede ahorrarte meses de prueba y error."
-    description="Conversemos sobre tu caso, tu equipo o tu idea. Podemos recomendarte si conviene partir con capacitación, un agente interno, contenido para flujos de trabajo potenciados por IA o una solución más liviana."
-    primaryLabel="Solicitar asesoría gratuita"
-    primaryHref="/contacto"
-    secondaryLabel="Comparar servicios"
-    secondaryHref="/productos"
-  />
 </BaseLayout>
 
 <style>
-  .proof-panel {
-    padding: 2rem;
-    border-radius: 34px;
-    display: grid;
-    gap: 1.6rem;
+  .landing-stage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
   }
 
-  .proof-grid {
+  .landing-shell {
+    display: grid;
+    gap: 1.3rem;
+  }
+
+  .landing-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
     gap: 1rem;
+    align-items: stretch;
   }
 
-  .proof-item {
-    padding: 1.1rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .proof-item h3 {
-    margin: 0 0 0.6rem;
-    font-size: 1.15rem;
-    color: white;
-    font-family: var(--font-display);
-  }
-
-  .proof-item p {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.76);
-    line-height: 1.7;
-  }
-
-  .split-band {
+  .landing-heading {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 1.35rem;
-    align-items: start;
-  }
-
-  .split-copy {
-    padding: 1.8rem;
-    border-radius: 28px;
-    position: sticky;
-    top: 6rem;
-    display: grid;
-    gap: 1rem;
-  }
-
-  .flow-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .flow-item {
+    gap: 0.8rem;
+    align-content: start;
     min-height: 100%;
+    padding: 0.35rem 0.25rem 0 0;
   }
 
-  .usecase-grid {
+  .landing-heading .title-xl {
+    font-size: clamp(2.6rem, 4.4vw, 4.45rem);
+    line-height: 1.02;
+  }
+
+  .landing-editorial {
+    padding: 1.25rem;
+    border-radius: 30px;
+    display: grid;
+    gap: 0.9rem;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .landing-editorial-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
     gap: 1rem;
   }
 
-  .usecase-item:nth-child(1),
-  .usecase-item:nth-child(4) {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(234, 240, 247, 0.92));
-  }
-
-  .testimonial-band {
+  .landing-signup {
+    padding: 1.35rem;
+    border-radius: 30px;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.2rem;
+    gap: 1.1rem;
+    align-content: start;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(236, 242, 248, 0.95)),
+      var(--color-surface);
   }
 
-  .quote-card {
-    border-radius: 26px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(244, 247, 250, 0.96));
+  .landing-signup-copy {
+    display: grid;
+    gap: 0.8rem;
   }
 
-  .quote-mark {
-    margin: 0;
-    font-size: 3rem;
-    line-height: 1;
-    color: var(--color-accent-strong);
-    font-family: var(--font-display);
+  .landing-form {
+    display: grid;
+    gap: 0.8rem;
   }
 
-  .quote-text {
-    margin: 0;
+  .landing-field {
+    display: grid;
+    gap: 0.45rem;
+    font-weight: 700;
     color: var(--color-primary);
-    font-size: 1.06rem;
-    line-height: 1.75;
   }
 
-  .quote-meta {
+  .landing-field input {
+    font: inherit;
+    padding: 1rem 1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(11, 31, 58, 0.12);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  .landing-submit {
+    width: 100%;
+  }
+
+  .landing-signup-proof {
+    display: grid;
+    gap: 0.75rem;
+    padding-top: 0.15rem;
+  }
+
+  .landing-signup-proof article {
     display: grid;
     gap: 0.2rem;
+    padding: 0.9rem 1rem;
+    border-radius: 20px;
+    background: rgba(11, 31, 58, 0.04);
+    border: 1px solid rgba(11, 31, 58, 0.06);
   }
 
-  .quote-meta strong {
+  .landing-signup-proof strong {
     color: var(--color-primary);
   }
 
-  .quote-meta span {
+  .landing-signup-proof span {
     color: var(--color-muted);
+    line-height: 1.55;
+    font-size: 0.95rem;
+  }
+
+  .landing-signup-panel :global(.section-tight) {
+    padding: 0;
   }
 
   @media (max-width: 960px) {
-    .split-band,
-    .testimonial-band {
+    .landing-stage {
+      min-height: auto;
+      padding: 1.25rem 0 2rem;
+    }
+
+    .landing-top {
       grid-template-columns: 1fr;
     }
 
-    .split-copy {
-      position: static;
+    .landing-editorial-head {
+      align-items: start;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .landing-stage {
+      padding: 1rem 0 1.6rem;
     }
 
-    .flow-grid {
-      grid-template-columns: 1fr;
+    .landing-heading .title-xl {
+      font-size: clamp(2.15rem, 9.4vw, 2.9rem);
+      line-height: 1.03;
     }
   }
 </style>
