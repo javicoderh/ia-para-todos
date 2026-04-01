@@ -46,6 +46,12 @@ import brainImage from "../assets/brain.png";
             <input type="hidden" name="_next" value="" data-next-url="/gracias" />
 
             <label class="landing-field">
+              Nombre
+              <input type="text" name="nombre" placeholder="Tu nombre" required />
+              <span class="field-error" data-error-for="nombre"></span>
+            </label>
+
+            <label class="landing-field">
               Email
               <input type="email" name="email" placeholder="nombre@empresa.cl" required />
               <span class="field-error" data-error-for="email"></span>
