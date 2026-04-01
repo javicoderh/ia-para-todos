@@ -216,38 +216,187 @@ const secondaryLinks = [
 
   @media (max-width: 720px) {
     .footer {
-      margin-top: 2.5rem;
-      padding-top: 1.4rem;
+      margin-top: 2.1rem;
+      padding-top: 1rem;
     }
 
     .footer-compact {
-      margin-top: 2rem;
-      padding-top: 1.1rem;
+      margin-top: 1.6rem;
+      padding-top: 0.85rem;
     }
 
     .footer-brand,
     .footer-links-panel {
-      border-radius: 24px;
+      border-radius: 22px;
     }
 
     .footer-brand {
-      padding: 1.15rem;
-      gap: 0.85rem;
+      padding: 1rem;
+      gap: 0.7rem;
+    }
+
+    .footer-brand .eyebrow {
+      font-size: 0.72rem;
+      padding: 0.34rem 0.65rem;
+    }
+
+    .footer-brand .title-md {
+      font-size: clamp(1.35rem, 6vw, 1.7rem);
+    }
+
+    .footer-brand .body-lg {
+      font-size: 0.93rem;
+      line-height: 1.5;
     }
 
     .footer-links-panel {
-      padding: 1rem;
-      gap: 1rem;
+      padding: 0.95rem;
+      gap: 0.9rem;
+    }
+
+    .footer-link-column,
+    .footer-contact {
+      gap: 0.6rem;
+    }
+
+    .footer-links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem 0.8rem;
+    }
+
+    .footer-links a {
+      font-size: 0.94rem;
     }
 
     .footer-contact-card {
-      padding: 0.85rem;
-      border-radius: 18px;
+      padding: 0.78rem 0.82rem;
+      border-radius: 16px;
+      gap: 0.45rem;
+    }
+
+    .footer-contact-card a,
+    .footer-contact-card span {
+      font-size: 0.93rem;
+      line-height: 1.45;
+    }
+
+    .footer-actions {
+      display: grid;
+      gap: 0.6rem;
     }
 
     .footer-bottom {
-      font-size: 0.86rem;
-      padding-top: 0.75rem;
+      font-size: 0.82rem;
+      padding-top: 0.65rem;
+      gap: 0.35rem;
+      justify-content: start;
+      flex-direction: column;
+    }
+
+    .footer-compact .footer-shell {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .footer-compact .footer-brand {
+      width: 100%;
+      padding: 0;
+      gap: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .footer-compact .footer-actions {
+      display: none;
+    }
+
+    .footer-compact .footer-brand .eyebrow,
+    .footer-compact .footer-brand .body-lg {
+      display: none;
+    }
+
+    .footer-compact .footer-brand .title-md {
+      font-size: 0.98rem;
+      line-height: 1.15;
+    }
+
+    .footer-compact .footer-links-panel {
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+      display: block;
+      gap: 0;
+    }
+
+    .footer-compact .footer-link-column:nth-child(2),
+    .footer-compact .footer-contact {
+      display: none;
+    }
+
+    .footer-compact .footer-link-column {
+      justify-items: center;
+    }
+
+    .footer-compact .footer-link-column .muted-label {
+      display: none;
+    }
+
+    .footer-compact .footer-links {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    .footer-compact .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      padding: 0.8rem 0.2rem;
+      width: 100%;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      font-size: 0.74rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .footer-compact .footer-links li:last-child a {
+      border-right: 0;
+    }
+
+    .footer-compact .footer-bottom {
+      display: flex;
+      width: 100%;
+      margin-top: 0;
+      padding: 0.5rem 0 0;
+      border-top: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .footer-compact .footer-bottom span {
+      display: none;
+    }
+
+    .footer-compact .footer-bottom a {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.88);
     }
   }
 </style>
