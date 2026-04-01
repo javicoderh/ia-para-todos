@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTASection from "../components/CTASection.astro";
+---
+
+<BaseLayout title="Gracias | IA para Todos">
+  <section class="section">
+    <div class="container">
+      <div class="card card-pad thanks-card">
+        <p class="eyebrow">Solicitud enviada</p>
+        <h1 class="title-lg">Gracias. Tu información fue enviada correctamente.</h1>
+        <p class="lead">
+          Ya recibimos tu mensaje. Si corresponde, te responderemos a la brevedad al correo que indicaste.
+        </p>
+        <div class="thanks-actions">
+          <a class="btn btn-primary" href="/">Volver al inicio</a>
+          <a class="btn btn-secondary" href="/news">Seguir explorando contenido</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Mientras tanto, puedes seguir revisando servicios, precios y casos de uso."
+    description="Si ya estás evaluando una capacitación, un agente o un flujo potenciado por IA, hay más contexto útil dentro del sitio."
+    primaryLabel="Ver precios"
+    primaryHref="/precios"
+    secondaryLabel="Ver productos"
+    secondaryHref="/productos"
+  />
+</BaseLayout>
+
+<style>
+  .thanks-card {
+    max-width: 52rem;
+    margin: 0 auto;
+    border-radius: 30px;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .thanks-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+</style>

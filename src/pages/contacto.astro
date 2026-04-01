@@ -13,34 +13,59 @@ import { company } from "../data/site";
 
   <section class="section">
     <div class="container contact-grid">
-      <form class="card card-pad contact-form">
+      <form
+        class="card card-pad contact-form"
+        action="https://formsubmit.co/justarapperguy@gmail.com"
+        method="POST"
+        data-validated
+        novalidate
+      >
+        <input type="hidden" name="_subject" value="Nueva solicitud de asesoría gratuita desde IA para Todos" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="" data-next-url="/gracias" />
         <label>
           Nombre
-          <input type="text" placeholder="Nombre y apellido" />
+          <input type="text" name="nombre" placeholder="Nombre y apellido" required />
+          <span class="field-error" data-error-for="nombre"></span>
         </label>
         <label>
           Empresa o institución
-          <input type="text" placeholder="Nombre de la empresa" />
+          <input type="text" name="empresa" placeholder="Nombre de la empresa" />
+          <span class="field-error" data-error-for="empresa"></span>
         </label>
         <label>
           Email
-          <input type="email" placeholder="nombre@empresa.cl" />
+          <input type="email" name="email" placeholder="nombre@empresa.cl" required />
+          <span class="field-error" data-error-for="email"></span>
+        </label>
+        <label>
+          Teléfono
+          <input type="tel" name="telefono" placeholder="+56 9 1234 5678" required />
+          <span class="field-error" data-error-for="telefono"></span>
         </label>
         <label>
           Qué necesitas
-          <select>
+          <select name="interes">
             <option>Workshop corporativo</option>
             <option>Workshop para individuos</option>
             <option>Agente interno</option>
             <option>Boletín de adopción</option>
             <option>Landing, app o herramienta</option>
           </select>
+          <span class="field-error" data-error-for="interes"></span>
         </label>
         <label>
           Contexto
-          <textarea rows="6" placeholder="Cuéntanos el problema, equipo o meta comercial."></textarea>
+          <textarea
+            rows="6"
+            name="contexto"
+            placeholder="Cuéntanos el problema, equipo o meta comercial."
+            required
+          ></textarea>
+          <span class="field-error" data-error-for="contexto"></span>
         </label>
-        <button class="btn btn-primary" type="button">Solicitar asesoría gratuita</button>
+        <button class="btn btn-primary" type="submit">Solicitar asesoría gratuita</button>
       </form>
 
       <aside class="card card-pad contact-aside">

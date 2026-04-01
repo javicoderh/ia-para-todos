@@ -129,6 +129,22 @@ img {
   font-size: 0.96rem;
 }
 
+.field-error {
+  min-height: 1rem;
+  margin-top: 0.15rem;
+  color: #c62828;
+  font-size: 0.82rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.field-error.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;

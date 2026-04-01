@@ -18,12 +18,28 @@ const {
         <h2 class="title-md">{title}</h2>
         <p class="body-lg">{description}</p>
       </div>
-      <form class="newsletter-form">
+      <form
+        class="newsletter-form"
+        action="https://formsubmit.co/justarapperguy@gmail.com"
+        method="POST"
+        data-validated
+        novalidate
+      >
+        <input type="hidden" name="_subject" value="Nueva suscripción al boletín gratuito desde IA para Todos" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="" data-next-url="/gracias" />
         <label>
           Email
-          <input type="email" placeholder="nombre@empresa.cl" />
+          <input type="email" name="email" placeholder="nombre@empresa.cl" required />
+          <span class="field-error" data-error-for="email"></span>
         </label>
-        <button class="btn btn-primary" type="button">Suscribirme gratis</button>
+        <label>
+          Teléfono
+          <input type="tel" name="telefono" placeholder="+56 9 1234 5678" required />
+          <span class="field-error" data-error-for="telefono"></span>
+        </label>
+        <button class="btn btn-primary" type="submit">Suscribirme gratis</button>
       </form>
     </div>
   </div>

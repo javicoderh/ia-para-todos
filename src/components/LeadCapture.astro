@@ -20,24 +20,42 @@ const {
         <p class="body-lg">{description}</p>
       </div>
 
-      <form class="capture-form">
+      <form
+        class="capture-form"
+        action="https://formsubmit.co/justarapperguy@gmail.com"
+        method="POST"
+        data-validated
+        novalidate
+      >
+        <input type="hidden" name="_subject" value="Nuevo lead magnet desde IA para Todos" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="" data-next-url="/gracias" />
         <label>
           Nombre
-          <input type="text" placeholder="Tu nombre" />
+          <input type="text" name="nombre" placeholder="Tu nombre" required />
+          <span class="field-error" data-error-for="nombre"></span>
         </label>
         <label>
           Email
-          <input type="email" placeholder="nombre@empresa.cl" />
+          <input type="email" name="email" placeholder="nombre@empresa.cl" required />
+          <span class="field-error" data-error-for="email"></span>
+        </label>
+        <label>
+          Teléfono
+          <input type="tel" name="telefono" placeholder="+56 9 1234 5678" required />
+          <span class="field-error" data-error-for="telefono"></span>
         </label>
         <label>
           Quiero recibir
-          <select>
+          <select name="recurso">
             <option>Diagnóstico rápido de IA</option>
             <option>Checklist de adopción</option>
             <option>10 workflows para este mes</option>
           </select>
+          <span class="field-error" data-error-for="recurso"></span>
         </label>
-        <button class="btn btn-primary" type="button">Quiero recibirlo</button>
+        <button class="btn btn-primary" type="submit">Quiero recibirlo</button>
       </form>
     </div>
   </div>
