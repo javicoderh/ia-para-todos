@@ -111,9 +111,9 @@ export const services: ServiceCard[] = [
   },
   {
     title: "Agentes internos y asistentes a medida",
-    description: "Diseñamos asistentes internos que responden dudas frecuentes, ordenan información crítica y aceleran tareas repetitivas del equipo.",
+    description: "Diseñamos agentes internos que se entrenan para flujos especializados, guardan información útil y mejoran su desempeño a medida que el equipo los usa.",
     href: "/agentes",
-    bullets: ["Asistentes por área o proceso", "Resúmenes y extracción de tareas", "Automatización y soporte interno"],
+    bullets: ["Agentes por área o flujo especializado", "Memoria operativa y actualización continua", "Automatización, soporte y seguimiento interno"],
     audience: "Empresas"
   },
   {
