@@ -62,6 +62,7 @@ const { navigation, brandName } = Astro.props;
   }
 
   .header-shell {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -189,6 +190,7 @@ const { navigation, brandName } = Astro.props;
     position: absolute;
     right: 0;
     top: calc(100% + 0.6rem);
+    z-index: 90;
     width: min(88vw, 21rem);
     padding: 1rem;
     border-radius: 22px;
@@ -226,11 +228,14 @@ const { navigation, brandName } = Astro.props;
 
   @media (max-width: 720px) {
     .site-header {
-      position: static;
+      position: relative;
       padding-top: 0.6rem;
+      z-index: 90;
     }
 
     .header-shell {
+      position: relative;
+      z-index: 91;
       padding: 0.78rem 0.9rem;
       border-radius: 20px;
       flex-wrap: nowrap;
