@@ -1,0 +1,68 @@
+---
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section-tight">
+  <div class="container">
+    <div class="trust-bar card-editorial">
+      <div class="trust-copy">
+        <span class="kicker">Pensado para equipos que necesitan aterrizar la IA</span>
+        <p>Oferta y contenido diseñados para decisión comercial, adopción interna y upskilling práctico.</p>
+      </div>
+      <div class="trust-items">
+        {items.map((item) => (
+          <span>{item}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-bar {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: 1fr auto;
+    padding: 1.25rem 1.35rem;
+    align-items: center;
+  }
+
+  .trust-copy {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .trust-copy p {
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  .trust-items {
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .trust-items span {
+    padding: 0.62rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(11, 31, 58, 0.05);
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .trust-bar {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-items {
+      justify-content: flex-start;
+    }
+  }
+</style>

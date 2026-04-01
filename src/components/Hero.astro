@@ -1,0 +1,263 @@
+---
+import { heroStats, leadMagnets } from "../data/site";
+---
+
+<section class="section hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">IA aplicada para Chile y LatAm</p>
+      <div class="hero-heading">
+        <p class="muted-label">Implementación con foco práctico</p>
+        <h1 class="title-xl">Haz que la IA deje de impresionar y empiece a producir resultados.</h1>
+      </div>
+      <p class="lead">
+        Ayudamos a empresas y profesionales a usar IA para ahorrar tiempo, mejorar procesos, entrenar mejor a sus equipos y crear herramientas internas con valor real.
+      </p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="/diagnostico">Pedir diagnóstico rápido</a>
+        <a class="btn btn-secondary" href="/precios">Revisar precios</a>
+      </div>
+      <div class="hero-points">
+        {leadMagnets.map((item) => (
+          <span class="tag">{item}</span>
+        ))}
+      </div>
+    </div>
+
+    <div class="hero-panel card-dark">
+      <div class="hero-panel-inner">
+        <div class="hero-note">
+          <div>
+            <span class="kicker">Oferta lista para vender</span>
+            <h2 class="title-md">Tres frentes claros para convertir interés en implementación.</h2>
+          </div>
+          <div class="offer-stack">
+            <article>
+              <strong>Capacitación</strong>
+              <span>Entrena equipos y personas con ejemplos aplicables al trabajo y criterios que se pueden usar desde el primer día.</span>
+            </article>
+            <article>
+              <strong>Agentes internos</strong>
+              <span>Asistentes útiles para soporte, operación, reuniones, búsqueda de información y tareas repetitivas.</span>
+            </article>
+            <article>
+              <strong>Adopción continua</strong>
+              <span>Boletines, guías e infografías para mantener el impulso, reforzar aprendizajes y acompañar la adopción.</span>
+            </article>
+          </div>
+        </div>
+        <div class="hero-blueprint">
+          <div class="blueprint-line"></div>
+          <div class="blueprint-grid">
+            <div class="blueprint-block feature">
+              <span>Diagnóstico</span>
+              <strong>Quick wins y prioridades</strong>
+            </div>
+            <div class="blueprint-block">
+              <span>Workshop</span>
+              <strong>Hábito inicial</strong>
+            </div>
+            <div class="blueprint-block">
+              <span>Agente</span>
+              <strong>Soporte interno</strong>
+            </div>
+            <div class="blueprint-block">
+              <span>Boletín</span>
+              <strong>Continuidad mensual</strong>
+            </div>
+          </div>
+        </div>
+        <div class="stats-grid">
+          {heroStats.map((stat) => (
+            <article class="stat-card">
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </article>
+          ))}
+        </div>
+        <div class="mini-cta">
+          <p class="muted-label">Ideal para conectar después</p>
+          <p class="body-md">
+            Si quieres detectar oportunidades rápido, el mejor punto de partida suele ser un diagnóstico breve con foco en impacto y factibilidad.
+          </p>
+          <a class="btn btn-accent" href="/contacto">Quiero evaluar mi caso</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: 3.7rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.04fr 0.96fr;
+    gap: 1.7rem;
+    align-items: stretch;
+  }
+
+  .hero-copy {
+    display: grid;
+    gap: 1.55rem;
+    align-content: center;
+  }
+
+  .hero-heading {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .hero-panel {
+    overflow: hidden;
+    position: relative;
+    border-radius: 34px;
+  }
+
+  .hero-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 100%),
+      radial-gradient(circle at top left, rgba(0, 209, 255, 0.12), transparent 36%);
+    pointer-events: none;
+  }
+
+  .hero-panel-inner {
+    position: relative;
+    z-index: 1;
+    padding: 1.7rem;
+    display: grid;
+    gap: 1.3rem;
+    min-height: 100%;
+  }
+
+  .hero-note {
+    display: grid;
+    gap: 1.1rem;
+    padding: 1.35rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .offer-stack {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .offer-stack article {
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .offer-stack strong {
+    color: white;
+    font-size: 1rem;
+  }
+
+  .offer-stack span {
+    color: rgba(255, 255, 255, 0.74);
+    line-height: 1.55;
+  }
+
+  .hero-blueprint {
+    position: relative;
+    padding: 1.1rem 0;
+  }
+
+  .blueprint-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.14), rgba(0, 209, 255, 0.44), rgba(255, 255, 255, 0.14));
+  }
+
+  .blueprint-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .blueprint-block {
+    display: grid;
+    gap: 0.2rem;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .blueprint-block.feature {
+    background: linear-gradient(145deg, rgba(0, 209, 255, 0.14), rgba(255, 255, 255, 0.06));
+  }
+
+  .blueprint-block span {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+
+  .blueprint-block strong {
+    color: white;
+    font-size: 1rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stat-card {
+    display: grid;
+    gap: 0.3rem;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .stat-card strong {
+    font-size: 1.7rem;
+    color: white;
+    font-family: var(--font-display);
+  }
+
+  .stat-card span {
+    color: rgba(255, 255, 255, 0.74);
+  }
+
+  .mini-cta {
+    padding: 1.2rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

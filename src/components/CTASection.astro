@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  title,
+  description,
+  primaryLabel = "Hablar con el equipo",
+  primaryHref = "/contacto",
+  secondaryLabel = "Ver precios",
+  secondaryHref = "/precios"
+} = Astro.props;
+---
+
+<section class="section-tight">
+  <div class="container">
+    <div class="cta-band card-dark">
+      <div>
+        <p class="eyebrow">Siguiente paso</p>
+        <h2 class="title-lg">{title}</h2>
+      </div>
+      <div>
+        <p class="lead">{description}</p>
+        <div class="button-row">
+          <a class="btn btn-accent" href={primaryHref}>{primaryLabel}</a>
+          <a class="btn btn-secondary" href={secondaryHref}>{secondaryLabel}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    border-radius: 34px;
+    padding: 2.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    box-shadow: var(--shadow-strong);
+  }
+
+  @media (max-width: 900px) {
+    .cta-band {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

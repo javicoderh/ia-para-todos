@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import PricingGrid from "../components/PricingGrid.astro";
+import LeadCapture from "../components/LeadCapture.astro";
+import { agentPlans, individualPlans, newsletterPlans, workshopPlans } from "../data/site";
+---
+
+<BaseLayout title="Precios | IA para Todos">
+  <PageHero
+    eyebrow="Pricing"
+    title="Valores claros para evaluar inversión y decidir con más seguridad."
+    description="Revisa valores de referencia para entender por dónde partir, ordenar presupuesto y decidir con más claridad qué servicio conviene primero."
+  />
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title-md">Workshops para empresas</h2>
+      <div style="margin-top: 1.5rem;">
+        <PricingGrid items={workshopPlans} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title-md">Formación para individuos y estudiantes</h2>
+      <div style="margin-top: 1.5rem;">
+        <PricingGrid items={individualPlans} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title-md">Boletines y planes de adopción</h2>
+      <div style="margin-top: 1.5rem;">
+        <PricingGrid items={newsletterPlans} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title-md">Agentes internos y módulos extra</h2>
+      <div style="margin-top: 1.5rem;">
+        <PricingGrid items={agentPlans} />
+      </div>
+    </div>
+  </section>
+
+  <LeadCapture
+    title="Si quieres afinar la inversión, conversemos tu caso."
+    description="Cuéntanos tu caso y te ayudamos a elegir un punto de partida razonable según tu objetivo, tu equipo y tu presupuesto."
+  />
+</BaseLayout>

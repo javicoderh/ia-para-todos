@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import ServiceCards from "../components/ServiceCards.astro";
+import CTASection from "../components/CTASection.astro";
+import { services } from "../data/site";
+---
+
+<BaseLayout title="Productos y servicios | IA para Todos">
+  <PageHero
+    eyebrow="Oferta principal"
+    title="Todo lo que necesitas para convertir la IA en una mejora visible del negocio."
+    description="Explora servicios y soluciones para capacitar equipos, implementar asistentes, reforzar adopción interna y resolver flujos que hoy consumen tiempo valioso."
+  />
+
+  <section class="section">
+    <div class="container">
+      <ServiceCards items={services} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-3">
+      <article class="card card-pad">
+        <h3 class="title-md">Para empresas</h3>
+        <p class="body-lg">Capacitación, asistentes internos y contenido recurrente para mover adopción con más claridad y mejor ejecución.</p>
+      </article>
+      <article class="card card-pad">
+        <h3 class="title-md">Para equipos comerciales</h3>
+        <p class="body-lg">Mejor respuesta, seguimiento más ordenado y uso más consistente de IA en prospección, propuestas y soporte.</p>
+      </article>
+      <article class="card card-pad">
+        <h3 class="title-md">Para personas</h3>
+        <p class="body-lg">Workshops y programas prácticos para aprender herramientas útiles, mejorar productividad y fortalecer tu perfil profesional.</p>
+      </article>
+    </div>
+  </section>
+
+  <CTASection
+    title="Las mejores implementaciones empiezan resolviendo algo importante."
+    description="Puedes comenzar con una capacitación, un agente, un boletín o una solución puntual, generar resultados y luego escalar con más certeza."
+  />
+</BaseLayout>

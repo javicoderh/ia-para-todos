@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import LeadCapture from "../components/LeadCapture.astro";
+import { leadMagnets } from "../data/site";
+---
+
+<BaseLayout title="Recursos | IA para Todos">
+  <PageHero
+    eyebrow="Recursos"
+    title="Recursos prácticos para aprender más rápido y decidir mejor."
+    description="Aquí reunimos materiales prácticos para detectar oportunidades, ordenar criterios y entender cómo aterrizar la IA con foco y claridad."
+  />
+
+  <section class="section">
+    <div class="container grid grid-3">
+      {leadMagnets.map((item) => (
+        <article class="card card-pad">
+          <p class="kicker">Descargable</p>
+          <h2 class="title-md">{item}</h2>
+          <p class="body-lg">Recurso pensado para ayudarte a detectar oportunidades concretas y tomar mejores decisiones antes de implementar.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <LeadCapture />
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import FAQList from "../components/FAQList.astro";
+import { faqs } from "../data/site";
+---
+
+<BaseLayout title="FAQ | IA para Todos">
+  <PageHero
+    eyebrow="FAQ"
+    title="Respuestas claras para avanzar con más seguridad."
+    description="Respuestas claras para ayudarte a entender cómo trabajamos, cuánto puedes esperar invertir y cuál suele ser el mejor punto de partida."
+  />
+
+  <section class="section">
+    <div class="container">
+      <FAQList items={faqs} />
+    </div>
+  </section>
+</BaseLayout>

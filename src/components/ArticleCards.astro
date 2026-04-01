@@ -1,0 +1,104 @@
+---
+import type { Article } from "../data/site";
+
+interface Props {
+  items: Article[];
+}
+
+const { items } = Astro.props;
+const [featured, ...secondary] = items;
+---
+
+<div class="news-layout">
+  {featured && (
+    <article class="card article-card featured">
+      <div class="cover-label">{featured.coverLabel}</div>
+      <div class="card-pad article-body">
+        <div class="article-meta">
+          <span class="tag">{featured.category}</span>
+          <span>{featured.date}</span>
+          <span>{featured.readTime}</span>
+        </div>
+        <h3 class="title-lg">{featured.title}</h3>
+        <p class="body-lg">{featured.excerpt}</p>
+        <a class="service-link" href={`/news/${featured.slug}`}>Leer artículo destacado</a>
+      </div>
+    </article>
+  )}
+
+  <div class="secondary-stack">
+    {secondary.map((article) => (
+      <article class="card article-card secondary">
+        <div class="cover-label">{article.coverLabel}</div>
+        <div class="card-pad article-body">
+          <div class="article-meta">
+            <span class="tag">{article.category}</span>
+            <span>{article.readTime}</span>
+          </div>
+          <h3 class="title-md">{article.title}</h3>
+          <p class="body-lg">{article.excerpt}</p>
+          <a class="service-link" href={`/news/${article.slug}`}>Leer artículo</a>
+        </div>
+      </article>
+    ))}
+  </div>
+</div>
+
+<style>
+  .news-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.3rem;
+  }
+
+  .article-card {
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  .cover-label {
+    min-height: 8rem;
+    display: flex;
+    align-items: end;
+    padding: 1.2rem;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: white;
+    background:
+      linear-gradient(155deg, rgba(11, 31, 58, 0.95), rgba(31, 60, 136, 0.82)),
+      radial-gradient(circle at top right, rgba(0, 209, 255, 0.32), transparent 24%);
+  }
+
+  .featured .cover-label {
+    min-height: 20rem;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+  }
+
+  .secondary-stack {
+    display: grid;
+    gap: 1.3rem;
+  }
+
+  .secondary .cover-label {
+    min-height: 7rem;
+  }
+
+  .article-body {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 960px) {
+    .news-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

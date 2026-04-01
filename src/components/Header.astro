@@ -1,0 +1,164 @@
+---
+interface Props {
+  navigation: { label: string; href: string }[];
+  brandName: string;
+}
+
+const { navigation, brandName } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="container header-shell">
+    <a href="/" class="brand-lockup">
+      <span class="brand-mark">
+        <span></span>
+        <span></span>
+      </span>
+      <span>
+        <strong>{brandName}</strong>
+        <small>IA práctica para crecer y operar mejor</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Principal">
+      {navigation.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn btn-secondary" href="/precios">Ver precios</a>
+      <a class="btn btn-primary" href="/diagnostico">Diagnóstico rápido</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 1rem 0 0;
+    backdrop-filter: blur(12px);
+  }
+
+  .header-shell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.15rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(11, 31, 58, 0.08);
+    box-shadow: 0 16px 34px rgba(11, 31, 58, 0.08);
+  }
+
+  .brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 0;
+  }
+
+  .brand-lockup strong,
+  .brand-lockup small {
+    display: block;
+  }
+
+  .brand-lockup strong {
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+  }
+
+  .brand-lockup small {
+    color: var(--color-muted);
+    font-size: 0.82rem;
+  }
+
+  .brand-mark {
+    width: 2.9rem;
+    height: 2.9rem;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.24rem;
+    padding: 0.38rem;
+    border-radius: 16px;
+    background: linear-gradient(145deg, var(--color-primary), #21468f);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .brand-mark span {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .brand-mark span:last-child {
+    background: linear-gradient(180deg, var(--color-accent), rgba(255, 255, 255, 0.92));
+  }
+
+  .desktop-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .desktop-nav a {
+    color: var(--color-muted);
+    font-weight: 700;
+    padding: 0.35rem 0;
+    position: relative;
+  }
+
+  .desktop-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.1rem;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+
+  .desktop-nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .header-cta {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 1080px) {
+    .header-shell {
+      border-radius: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .desktop-nav {
+      order: 3;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .site-header {
+      position: static;
+      padding-top: 0.75rem;
+    }
+
+    .desktop-nav,
+    .header-cta {
+      width: 100%;
+    }
+
+    .header-cta {
+      flex-direction: column;
+    }
+  }
+</style>

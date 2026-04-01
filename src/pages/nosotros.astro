@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { brand } from "../data/site";
+---
+
+<BaseLayout title="Nosotros | IA para Todos">
+  <PageHero
+    eyebrow="Posicionamiento"
+    title="Creemos que la IA vale más cuando se entiende rápido y se aplica mejor."
+    description="Trabajamos desde una idea simple: la IA sirve más cuando se traduce en criterio, hábitos, procesos y herramientas que las personas realmente pueden usar."
+  />
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <article class="card card-pad">
+        <h2 class="title-md">Nombre actual</h2>
+        <p class="body-lg">
+          <strong>{brand.name}</strong> comunica cercanía y apertura. La intención de la marca es bajar barreras, explicar con claridad y conectar la IA con resultados concretos.
+        </p>
+      </article>
+      <article class="card card-pad">
+        <h2 class="title-md">Alternativas sugeridas</h2>
+        <ul class="list-clean list-check">
+          {brand.alternatives.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

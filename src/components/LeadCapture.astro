@@ -1,0 +1,83 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  compact?: boolean;
+}
+
+const {
+  title = "Llévate un recurso útil y abre conversación comercial",
+  description = "Recibe una guía breve y accionable para detectar oportunidades de IA, ordenar prioridades y conversar con más claridad sobre el siguiente paso."
+} = Astro.props;
+---
+
+<section class="section-tight">
+  <div class="container">
+    <div class="card lead-capture">
+      <div>
+        <p class="eyebrow">Lead magnet</p>
+        <h2 class="title-md">{title}</h2>
+        <p class="body-lg">{description}</p>
+      </div>
+
+      <form class="capture-form">
+        <label>
+          Nombre
+          <input type="text" placeholder="Tu nombre" />
+        </label>
+        <label>
+          Email
+          <input type="email" placeholder="nombre@empresa.cl" />
+        </label>
+        <label>
+          Quiero recibir
+          <select>
+            <option>Diagnóstico rápido de IA</option>
+            <option>Checklist de adopción</option>
+            <option>10 workflows para este mes</option>
+          </select>
+        </label>
+        <button class="btn btn-primary" type="button">Quiero recibirlo</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lead-capture {
+    padding: 1.6rem;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+
+  .capture-form {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .capture-form label {
+    display: grid;
+    gap: 0.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .capture-form input,
+  .capture-form select,
+  .capture-form textarea {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+    font: inherit;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 900px) {
+    .lead-capture {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

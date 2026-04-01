@@ -1,0 +1,77 @@
+---
+interface Props {
+  navigation: { label: string; href: string }[];
+  brandName: string;
+  company: {
+    email: string;
+    phone: string;
+    whatsapp: string;
+    city: string;
+  };
+}
+
+const { navigation, brandName, company } = Astro.props;
+---
+
+<footer class="footer surface-dark">
+  <div class="container footer-grid">
+    <div>
+      <p class="eyebrow">Frontend seed comercial</p>
+      <h2 class="title-md">{brandName}</h2>
+      <p class="body-lg">
+        IA útil para entrenar equipos, implementar asistentes internos y convertir la adopción en una ventaja operativa.
+      </p>
+    </div>
+
+    <div>
+      <p class="kicker">Navegación</p>
+      <ul class="list-clean footer-links">
+        {navigation.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+        <li><a href="/casos-de-uso">Casos de uso</a></li>
+        <li><a href="/recursos">Recursos</a></li>
+        <li><a href="/faq">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="kicker">Contacto</p>
+      <ul class="list-clean footer-links">
+        <li><a href={`mailto:${company.email}`}>{company.email}</a></li>
+        <li><a href={`tel:${company.phone}`}>{company.phone}</a></li>
+        <li><a href={company.whatsapp}>WhatsApp</a></li>
+        <li>{company.city}</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: 4rem;
+    padding: 4rem 0;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+
+  .footer-links {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .footer-links a,
+  .footer-links li {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

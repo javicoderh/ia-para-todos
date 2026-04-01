@@ -1,0 +1,80 @@
+---
+import type { PricingPlan } from "../data/site";
+
+interface Props {
+  items: PricingPlan[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="grid grid-3">
+  {items.map((item) => (
+    <article class:list={["card", "card-pad", "pricing-card", item.highlighted && "highlighted"]}>
+      <div class="pricing-top">
+        <p class="kicker">{item.audience}</p>
+        {item.highlighted && <span class="plan-badge">Más solicitado</span>}
+      </div>
+      <div>
+        <h3 class="title-md">{item.name}</h3>
+        <p class="price">{item.price}</p>
+        <p class="body-lg">{item.description}</p>
+      </div>
+      <div class="divider"></div>
+      <ul class="list-clean list-check">
+        {item.features.map((feature) => (
+          <li>{feature}</li>
+        ))}
+      </ul>
+      <a class:list={["btn", item.highlighted ? "btn-primary" : "btn-secondary"]} href={item.ctaHref}>
+        {item.ctaLabel}
+      </a>
+    </article>
+  ))}
+</div>
+
+<style>
+  .pricing-card {
+    display: grid;
+    gap: 1.15rem;
+    align-content: start;
+    grid-template-rows: auto auto 1fr auto;
+    border-radius: 24px;
+  }
+
+  .pricing-card.highlighted {
+    background:
+      radial-gradient(circle at top right, rgba(0, 209, 255, 0.18), transparent 24%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(233, 245, 249, 0.98));
+    border: 1px solid rgba(0, 209, 255, 0.32);
+    transform: translateY(-0.3rem);
+  }
+
+  .pricing-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .plan-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.74rem;
+    padding: 0.42rem 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 800;
+  }
+
+  .price {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    color: var(--color-primary);
+    line-height: 0.98;
+  }
+</style>

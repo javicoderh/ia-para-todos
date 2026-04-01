@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import CTASection from "../components/CTASection.astro";
+import { useCases } from "../data/site";
+---
+
+<BaseLayout title="Casos de uso | IA para Todos">
+  <PageHero
+    eyebrow="Casos de uso"
+    title="Descubre dónde la IA puede producir resultados concretos en tu operación."
+    description="Explora escenarios concretos donde la IA puede ahorrar tiempo, mejorar la calidad de respuesta y acelerar el avance del trabajo."
+  />
+
+  <section class="section">
+    <div class="container grid grid-2">
+      {useCases.map((item) => (
+        <article class="card card-pad">
+          <h2 class="title-md">{item.title}</h2>
+          <p class="body-lg">{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CTASection
+    title="Cuando la oportunidad está clara, lo importante es partir por lo correcto."
+    description="Podemos ayudarte a decidir si conviene partir con capacitación, un asistente interno, contenido de adopción o una solución más específica."
+  />
+</BaseLayout>

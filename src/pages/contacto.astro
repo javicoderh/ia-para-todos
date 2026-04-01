@@ -1,0 +1,169 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { company } from "../data/site";
+---
+
+<BaseLayout title="Contacto | IA para Todos">
+  <PageHero
+    eyebrow="Contacto"
+    title="Cuéntanos qué quieres lograr y te ayudamos a convertirlo en un siguiente paso claro."
+    description="Cuéntanos qué quieres resolver y te orientamos sobre el mejor punto de partida según tu etapa, tu equipo y tu presupuesto."
+  />
+
+  <section class="section">
+    <div class="container contact-grid">
+      <form class="card card-pad contact-form">
+        <label>
+          Nombre
+          <input type="text" placeholder="Nombre y apellido" />
+        </label>
+        <label>
+          Empresa o institución
+          <input type="text" placeholder="Nombre de la empresa" />
+        </label>
+        <label>
+          Email
+          <input type="email" placeholder="nombre@empresa.cl" />
+        </label>
+        <label>
+          Qué necesitas
+          <select>
+            <option>Workshop corporativo</option>
+            <option>Workshop para individuos</option>
+            <option>Agente interno</option>
+            <option>Boletín de adopción</option>
+            <option>Landing, app o herramienta</option>
+          </select>
+        </label>
+        <label>
+          Contexto
+          <textarea rows="6" placeholder="Cuéntanos el problema, equipo o meta comercial."></textarea>
+        </label>
+        <button class="btn btn-primary" type="button">Quiero una recomendación</button>
+      </form>
+
+      <aside class="card card-pad contact-aside">
+        <p class="eyebrow">Respuesta rápida</p>
+        <h2 class="title-md">Podemos ayudarte a aterrizar la idea antes de invertir de más.</h2>
+        <ul class="list-clean list-check">
+          <li>Respuesta inicial en 24 a 48 horas hábiles.</li>
+          <li>Recomendación según etapa, presupuesto y tamaño de equipo.</li>
+          <li>Opciones para partir pequeño, validar valor y escalar después.</li>
+        </ul>
+        <div class="contact-lines">
+          <a class="contact-link contact-item" href={`mailto:${company.email}`}>
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.2l8 5.34 8-5.34V7H4Zm16 10V9.6l-7.44 4.96a1 1 0 0 1-1.12 0L4 9.6V17h16Z"/>
+              </svg>
+            </span>
+            <span class="contact-text">
+              <strong>Email</strong>
+              <span>{company.email}</span>
+            </span>
+          </a>
+          <a class="contact-link contact-item" href={`tel:${company.phone}`}>
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v14h10V5H7Zm5 12.5a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2Z"/>
+              </svg>
+            </span>
+            <span class="contact-text">
+              <strong>Teléfono</strong>
+              <span>{company.phone}</span>
+            </span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    gap: 1.4rem;
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  .contact-form,
+  .contact-aside {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-form label {
+    display: grid;
+    gap: 0.45rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font: inherit;
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+  }
+
+  .contact-lines {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .contact-link {
+    color: inherit;
+  }
+
+  .contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.9rem 1rem;
+    border-radius: 18px;
+    background: rgba(11, 31, 58, 0.04);
+    border: 1px solid rgba(11, 31, 58, 0.08);
+  }
+
+  .contact-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(31, 60, 136, 0.12), rgba(0, 209, 255, 0.18));
+    color: var(--color-secondary);
+  }
+
+  .contact-icon svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: currentColor;
+    flex: none;
+  }
+
+  .contact-text {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .contact-text strong {
+    color: var(--color-primary);
+    font-size: 0.88rem;
+  }
+
+  .contact-text span {
+    color: var(--color-secondary);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

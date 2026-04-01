@@ -1,0 +1,139 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import PricingGrid from "../components/PricingGrid.astro";
+import CTASection from "../components/CTASection.astro";
+import { agentPlans } from "../data/site";
+---
+
+<BaseLayout title="Agentes internos y asistentes | IA para Todos">
+  <PageHero
+    eyebrow="Asistentes a medida"
+    title="Haz que tu equipo deje de perseguir información y empiece a resolver más rápido."
+    description="Implementamos un asistente ejecutivo que ordena información, acelera respuestas y puede sumar 1 a 3 features especializados para ventas, reuniones, soporte, RR. HH. u operación."
+  />
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <article class="card card-pad info-card">
+        <h3 class="title-md">Qué puede hacer un agente interno</h3>
+        <ul class="list-clean list-check">
+          <li>Responder dudas frecuentes con acceso más rápido a información útil.</li>
+          <li>Buscar políticas, documentos y procedimientos con mayor agilidad.</li>
+          <li>Resumir reuniones y transformar acuerdos en tareas accionables.</li>
+          <li>Apoyar operaciones, soporte o coordinación interna con información útil al momento.</li>
+          <li>Integrar flujos especializados como onboarding interno, soporte a vendedores, seguimiento de tickets o preparación de reuniones.</li>
+        </ul>
+      </article>
+      <article class="card card-pad info-card">
+        <h3 class="title-md">Qué resultados puedes esperar</h3>
+        <ul class="list-clean list-check">
+          <li>Respuestas más rápidas a preguntas internas frecuentes.</li>
+          <li>Menos tiempo buscando documentos, políticas o procedimientos.</li>
+          <li>Mejor seguimiento de reuniones, tareas y pendientes.</li>
+          <li>Más orden operativo con una implementación inicial acotada y escalable.</li>
+          <li>Un alcance inicial que puede quedar más cerca de CLP $990.000 o de CLP $2.490.000 según la cantidad de features incluidos.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="card card-pad feature-examples">
+        <div>
+          <p class="eyebrow">Módulos que puedes sumar</p>
+          <h2 class="title-md">Ejemplos de features y flujos especializados</h2>
+        </div>
+        <div class="grid grid-2">
+          <article class="feature-card feature-card-accent">
+            <strong>Qué incluye la implementación base</strong>
+            <p>Un asistente ejecutivo inicial más 1 a 3 features especializados. Según el caso, cada feature puede dejar información automatizada en tablas de trabajo, tareas, calendarios o flujos de seguimiento.</p>
+          </article>
+          <article class="feature-card">
+            <strong>Asistente para ventas</strong>
+            <p>Busca fichas de producto, resume reuniones comerciales y propone próximos pasos para cada oportunidad, dejando seguimiento en tablas comerciales o tareas asignadas.</p>
+          </article>
+          <article class="feature-card">
+            <strong>Apoyo a reuniones</strong>
+            <p>Convierte grabaciones o notas en resúmenes, acuerdos, tareas asignadas y recordatorios de seguimiento, con opción de llevarlos a calendarios o tableros de trabajo.</p>
+          </article>
+          <article class="feature-card">
+            <strong>Soporte interno</strong>
+            <p>Responde preguntas frecuentes de equipo sobre procesos, políticas, beneficios o uso de herramientas internas, y puede registrar solicitudes o derivaciones cuando corresponda.</p>
+          </article>
+          <article class="feature-card">
+            <strong>Coordinación operativa</strong>
+            <p>Centraliza información dispersa, extrae pendientes y ayuda a mantener visibilidad de tareas críticas, alimentando tablas, checklists o paneles de seguimiento.</p>
+          </article>
+          <article class="feature-card">
+            <strong>RR. HH. y onboarding</strong>
+            <p>Acompaña ingresos nuevos con respuestas guiadas, acceso a documentos clave y rutas de inducción más claras, con seguimiento de hitos y tareas de onboarding.</p>
+          </article>
+          <article class="feature-card">
+            <strong>Extracción y clasificación</strong>
+            <p>Lee correos, formularios o documentos y los transforma en tareas, etiquetas o resúmenes listos para usar, dejando la información ordenada donde el equipo ya trabaja.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <PricingGrid items={agentPlans} />
+    </div>
+  </section>
+
+  <CTASection
+    title="Cuando la información correcta aparece a tiempo, todo el equipo rinde mejor."
+    description="Si hoy hay tiempo perdido en preguntas internas, seguimiento manual o información dispersa, un agente bien diseñado puede convertirse en una ventaja operativa visible."
+    primaryLabel="Evaluar un agente"
+    primaryHref="/diagnostico"
+  />
+</BaseLayout>
+
+<style>
+  .info-card {
+    display: grid;
+    gap: 1.15rem;
+    align-content: start;
+  }
+
+  .info-card .title-md {
+    margin-bottom: 0.1rem;
+  }
+
+  .info-card .list-check {
+    margin-top: 0.15rem;
+  }
+
+  .feature-examples {
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  .feature-card {
+    display: grid;
+    gap: 0.45rem;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(11, 31, 58, 0.04);
+    border: 1px solid rgba(11, 31, 58, 0.08);
+  }
+
+  .feature-card strong {
+    color: var(--color-primary);
+  }
+
+  .feature-card-accent {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(234, 240, 247, 0.96));
+    border: 1px solid rgba(31, 60, 136, 0.12);
+  }
+
+  .feature-card p {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.65;
+  }
+</style>

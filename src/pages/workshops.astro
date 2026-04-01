@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import PricingGrid from "../components/PricingGrid.astro";
+import CTASection from "../components/CTASection.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+import { individualPlans, workshopPlans } from "../data/site";
+---
+
+<BaseLayout title="Workshops y capacitación | IA para Todos">
+  <PageHero
+    eyebrow="Workshops y formación"
+    title="Capacitación que transforma curiosidad en criterio, confianza y uso real."
+    description="Diseñamos programas para empresas, profesionales y estudiantes que quieren usar IA con más confianza, mejores hábitos y resultados visibles en su trabajo o estudios."
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionIntro
+        eyebrow="Empresas"
+        title="Entrena a tu equipo para que la IA se use con criterio desde el trabajo real."
+        description="Formatos pensados para founders, líderes, operaciones, RR. HH. y áreas que necesitan traducir la IA en tareas, criterios y procesos concretos."
+      />
+      <div style="margin-top: 2rem;">
+        <PricingGrid items={workshopPlans} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionIntro
+        eyebrow="Individuos y estudiantes"
+        title="Aprende IA de forma práctica y conviértela en una ventaja profesional visible."
+        description="Ideal para estudiantes, principiantes y profesionales que quieren avanzar rápido, destacar más y aplicar lo aprendido en contextos reales."
+      />
+      <div style="margin-top: 2rem;">
+        <PricingGrid items={individualPlans} />
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="La capacitación correcta acelera decisiones, mejora criterio y cambia hábitos."
+    description="Si quieres que el equipo use IA con más seguridad, velocidad y criterio, la mejor inversión suele ser una formación bien aterrizada a su realidad."
+    primaryLabel="Cotizar capacitación"
+    primaryHref="/contacto"
+  />
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import ArticleCards from "../../components/ArticleCards.astro";
+import { articles } from "../../data/site";
+---
+
+<BaseLayout title="News | IA para Todos">
+  <PageHero
+    eyebrow="News y artículos"
+    title="Ideas, análisis y casos para tomar mejores decisiones sobre IA."
+    description="Contenido pensado para quienes quieren entender qué conviene usar, qué vale la pena implementar y cómo avanzar sin caer en modas vacías."
+  />
+
+  <section class="section-tight">
+    <div class="container pill-row">
+      <span class="tag">Adopción</span>
+      <span class="tag">Capacitación</span>
+      <span class="tag">Automatización</span>
+      <span class="tag">Workflows</span>
+      <span class="tag">Herramientas</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <ArticleCards items={articles} />
+    </div>
+  </section>
+</BaseLayout>
