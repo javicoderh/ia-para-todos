@@ -10,6 +10,7 @@ interface Props {
   showHeader?: boolean;
   showFooter?: boolean;
   showWhatsapp?: boolean;
+  footerVariant?: "default" | "compact";
 }
 
 const {
@@ -17,7 +18,8 @@ const {
   description = seoDefaults.description,
   showHeader = true,
   showFooter = true,
-  showWhatsapp = true
+  showWhatsapp = true,
+  footerVariant = "default"
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, seoDefaults.url).toString();
@@ -43,7 +45,7 @@ const canonical = new URL(Astro.url.pathname, seoDefaults.url).toString();
     <main>
       <slot />
     </main>
-    {showFooter && <Footer navigation={navigation} brandName={brand.name} company={company} />}
+    {showFooter && <Footer navigation={navigation} brandName={brand.name} company={company} variant={footerVariant} />}
     {showWhatsapp && (
       <a class="whatsapp-float" href={company.whatsapp} aria-label="Abrir conversación en WhatsApp" target="_blank" rel="noreferrer">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -143,6 +145,23 @@ const canonical = new URL(Astro.url.pathname, seoDefaults.url).toString();
           }
         });
       });
+
+      const parallaxItems = [...document.querySelectorAll('[data-parallax]')];
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (parallaxItems.length && !reduceMotion) {
+        const updateParallax = () => {
+          const scrollY = window.scrollY;
+
+          parallaxItems.forEach((item) => {
+            const speed = Number(item.getAttribute('data-parallax-speed') || '0.04');
+            item.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
+          });
+        };
+
+        updateParallax();
+        window.addEventListener('scroll', updateParallax, { passive: true });
+      }
     </script>
   </body>
 </html>

@@ -8,41 +8,71 @@ interface Props {
     whatsapp: string;
     city: string;
   };
+  variant?: "default" | "compact";
 }
 
-const { navigation, brandName, company } = Astro.props;
+const { navigation, brandName, company, variant = "default" } = Astro.props;
+
+const isCompact = variant === "compact";
+const primaryLinks = navigation.slice(0, isCompact ? 4 : 5);
+const secondaryLinks = [
+  { label: "News", href: "/news" },
+  { label: "Casos de uso", href: "/casos-de-uso" },
+  { label: "Recursos", href: "/recursos" },
+  { label: "FAQ", href: "/faq" }
+];
 ---
 
-<footer class="footer surface-dark">
-  <div class="container footer-grid">
-    <div>
-      <p class="eyebrow">IA práctica para equipos y profesionales</p>
-      <h2 class="title-md">{brandName}</h2>
-      <p class="body-lg">
-        IA útil para entrenar equipos, implementar asistentes internos y convertir los flujos de trabajo potenciados por IA en una ventaja operativa.
-      </p>
+<footer class:list={["footer", "surface-dark", isCompact && "footer-compact"]}>
+  <div class="container">
+    <div class="footer-shell">
+      <div class="footer-brand">
+        <p class="eyebrow">IA práctica para crecer mejor</p>
+        <h2 class="title-md">{brandName}</h2>
+        <p class="body-lg">
+          Entrenamos equipos, diseñamos asistentes internos y transformamos flujos de trabajo potenciados por IA en una ventaja visible para tu negocio.
+        </p>
+        <div class="footer-actions">
+          <a class="btn btn-accent" href="/contacto">Solicitar asesoría gratuita</a>
+          {!isCompact && <a class="btn btn-secondary" href="/precios">Ver precios</a>}
+        </div>
+      </div>
+
+      <div class="footer-links-panel">
+        <div class="footer-link-column">
+          <p class="muted-label">Explorar</p>
+          <ul class="list-clean footer-links">
+            {primaryLinks.map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="footer-link-column">
+          <p class="muted-label">Más contenido</p>
+          <ul class="list-clean footer-links">
+            {secondaryLinks.map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <p class="muted-label">Contacto</p>
+          <div class="footer-contact-card">
+            <a href={`mailto:${company.email}`}>{company.email}</a>
+            <a href={`tel:${company.phone}`}>{company.phone}</a>
+            <a href={company.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
+            <span>{company.city}</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <p class="kicker">Navegación</p>
-      <ul class="list-clean footer-links">
-        {navigation.map((item) => (
-          <li><a href={item.href}>{item.label}</a></li>
-        ))}
-        <li><a href="/casos-de-uso">Casos de uso</a></li>
-        <li><a href="/recursos">Recursos</a></li>
-        <li><a href="/faq">FAQ</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <p class="kicker">Contacto</p>
-      <ul class="list-clean footer-links">
-        <li><a href={`mailto:${company.email}`}>{company.email}</a></li>
-        <li><a href={`tel:${company.phone}`}>{company.phone}</a></li>
-        <li><a href={company.whatsapp}>WhatsApp</a></li>
-        <li>{company.city}</li>
-      </ul>
+    <div class="footer-bottom">
+      <span>{brandName}</span>
+      <span>Chile y LatAm</span>
+      <a href="/home">Ir al sitio principal</a>
     </div>
   </div>
 </footer>
@@ -50,13 +80,53 @@ const { navigation, brandName, company } = Astro.props;
 <style>
   .footer {
     margin-top: 4rem;
-    padding: 4rem 0;
+    padding: 2.2rem 0 1.3rem;
   }
 
-  .footer-grid {
+  .footer-shell {
     display: grid;
-    gap: 2rem;
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 1.15rem;
+    align-items: start;
+  }
+
+  .footer-brand,
+  .footer-links-panel {
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(10px);
+  }
+
+  .footer-brand {
+    padding: 1.55rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .footer-brand .body-lg {
+    max-width: 46ch;
+  }
+
+  .footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-links-panel {
+    padding: 1.35rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .footer-link-column,
+  .footer-contact {
+    display: grid;
+    gap: 0.85rem;
+    align-content: start;
   }
 
   .footer-links {
@@ -65,13 +135,119 @@ const { navigation, brandName, company } = Astro.props;
   }
 
   .footer-links a,
-  .footer-links li {
-    color: rgba(255, 255, 255, 0.82);
+  .footer-contact-card a,
+  .footer-contact-card span {
+    color: rgba(255, 255, 255, 0.84);
+    line-height: 1.55;
   }
 
-  @media (max-width: 900px) {
-    .footer-grid {
+  .footer-links a:hover,
+  .footer-contact-card a:hover,
+  .footer-bottom a:hover {
+    color: white;
+  }
+
+  .footer-contact-card {
+    display: grid;
+    gap: 0.65rem;
+    padding: 0.95rem;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer-bottom {
+    margin-top: 1rem;
+    padding: 0.85rem 0.15rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.92rem;
+  }
+
+  .footer-bottom a {
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 700;
+  }
+
+  .footer-compact {
+    margin-top: 2.7rem;
+    padding-top: 1.45rem;
+  }
+
+  .footer-compact .footer-shell {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 0.95rem;
+  }
+
+  .footer-compact .footer-brand {
+    padding: 1.2rem;
+    gap: 0.8rem;
+  }
+
+  .footer-compact .footer-links-panel {
+    padding: 1.1rem;
+    gap: 0.8rem;
+  }
+
+  .footer-compact .footer-contact-card {
+    padding: 0.8rem;
+  }
+
+  .footer-compact .footer-bottom {
+    margin-top: 0.75rem;
+    padding-top: 0.65rem;
+  }
+
+  @media (max-width: 960px) {
+    .footer-shell,
+    .footer-links-panel {
       grid-template-columns: 1fr;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .footer {
+      margin-top: 2.5rem;
+      padding-top: 1.4rem;
+    }
+
+    .footer-compact {
+      margin-top: 2rem;
+      padding-top: 1.1rem;
+    }
+
+    .footer-brand,
+    .footer-links-panel {
+      border-radius: 24px;
+    }
+
+    .footer-brand {
+      padding: 1.15rem;
+      gap: 0.85rem;
+    }
+
+    .footer-links-panel {
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .footer-contact-card {
+      padding: 0.85rem;
+      border-radius: 18px;
+    }
+
+    .footer-bottom {
+      font-size: 0.86rem;
+      padding-top: 0.75rem;
     }
   }
 </style>
